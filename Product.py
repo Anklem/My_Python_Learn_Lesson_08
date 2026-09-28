@@ -1,0 +1,19 @@
+class Product:
+
+    def __init__(self, name: str, price: float):
+        self.name = name
+        self.price = price
+
+    def __str__(self):
+        return f"Продукт (Название={self.name}, Цена={self.price})"
+
+    def __repr__(self):
+        return f"Продукт (Название={self.name!r}, Цена={self.price})"
+
+    def __eq__(self, other : object):
+        if not isinstance(other, Product): return NotImplemented
+        return self.price == other.price
+
+    def __lt__(self, other : object):
+        if not isinstance(other, Product): return NotImplemented
+        return self.price < other.price
